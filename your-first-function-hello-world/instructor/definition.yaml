@@ -1,0 +1,135 @@
+# The full source of this assignment, including the solution and any hidden tests. Instructors only.
+# To update the assignment: open the authoring form, choose Import YAML, open this file, make your changes, and export again.
+id: your-first-function-hello-world
+version: "1.0.0"
+
+basics:
+  title: Your First Function - Hello World
+  short_description: Students write a function named say_hello that returns the string "hello world", then use it to print the greeting a chosen number of times.
+  topic_category: Writing Functions
+  difficulty: Beginner
+  estimated_time: 20 minutes
+
+grading:
+  grading_modes: [correctness]
+  test_mode: stdin_stdout
+  points:
+    tests: 30
+    quality: 0
+    acceptance: 0
+
+instructions:
+  body: |
+    In this assignment you will write your very first function. A function is a named
+    block of code that you can use again and again.
+
+    Your task has two parts.
+
+    Part 1: Write a function
+    - Name the function `say_hello`.
+    - It takes no parameters.
+    - It must `return` the string `hello world` (all lowercase, with one space).
+    - The function should only return the text. It should not print it.
+
+    Part 2: Use the function
+    - Ask the user how many times to greet, using `input()`. Convert the answer to an integer.
+    - If the number is 1 or more, call `say_hello()` that many times. Print the result of each call on its own line.
+    - If the number is 0 or less, print exactly `Nothing to print` and nothing else.
+
+    You can assume the user always types a whole number.
+
+    Example 1:
+      How many greetings? 2
+      hello world
+      hello world
+
+    Example 2:
+      How many greetings? 0
+      Nothing to print
+
+    Note: The tests look at the end of your program's output, so you can word your
+    "How many greetings?" prompt however you like. The greeting lines and the
+    `Nothing to print` message must match exactly.
+
+    Edge cases to consider:
+    - A count of 1.
+    - A count of 0.
+    - A negative count.
+
+media: []
+
+starter_code:
+  language: Python 3
+  files:
+    - file_name: assignment.py
+      code: |
+        # Your First Function - Hello World
+
+        # TODO: Define a function named say_hello that takes no parameters.
+        #       It should RETURN the string "hello world" (not print it).
+
+
+        count = int(input("How many greetings? "))
+
+        # TODO: If count is 1 or more, call say_hello() that many times
+        #       and print each result on its own line.
+        # TODO: Otherwise, print: Nothing to print
+
+reference_solution:
+  language: Python 3
+  file_name: assignment.py
+  code: |
+    def say_hello():
+        return "hello world"
+
+
+    count = int(input("How many greetings? "))
+
+    if count >= 1:
+        for _ in range(count):
+            print(say_hello())
+    else:
+        print("Nothing to print")
+
+test_cases:
+  - name: "Success: one greeting"
+    input: "1"
+    expected_output: hello world
+    visibility: Sample
+    points: 15
+  - name: "Success: three greetings"
+    input: "3"
+    expected_output: hello world
+hello world
+hello world
+    visibility: Sample
+    points: 15
+
+feedback:
+  pass_message: |
+    Great job! Your say_hello function returns the right text, and your program uses it correctly every time.
+  fail_message: |
+    Some test cases did not pass. Run your program with 1, 0, and -4 and compare your output to the examples.
+  additional_feedback: |
+    - If nothing shows on screen, check that you used print() when calling say_hello(). The function itself only returns the text.
+    - If you see None in your output, your function probably prints instead of returns.
+    - If the text looks right but fails, check that it is all lowercase with exactly one space: hello world.
+    - If a count of 0 or a negative count prints greetings, check your condition.
+
+metadata:
+  tags: [functions, return, input, loops, code-correctness]
+  format: Write from scratch
+  media_types: [none]
+  bloom_level: Apply
+  learning_objectives: 
+    - Define a function with def and give it a clear name.
+    - Use return to send a value back from a function.
+    - Call a function and print the value it returns.
+    - Produce output that matches a written specification.
+  prerequisites: 
+    - Variables and data types
+    - input() and print()
+    - Basic if/else statements
+    - for loops with range()
+  standards_alignment: ""
+  visible_to: All students
