@@ -3,7 +3,7 @@
 # The layout is deliberately generic. An IDE needs only `grading`, `runtime`, and `files`.
 schema_version: 4
 id: your-first-function-hello-world
-version: "1.0.0"
+version: "1.0.1"
 title: Your First Function - Hello World
 short_description: Students write a function named say_hello that returns the string "hello world", then use it to print the greeting a chosen number of times.
 topic_category: Writing Functions
@@ -45,8 +45,12 @@ runtime:
   entry_point: starting.py
   editable_files: [student/starting.py]
   run:
-    student_tests: cd student && python tests-visible.py
-    check_solution: cd instructor && python tests-hidden.py
+    student_tests:
+      cwd: student
+      command: [python, tests-visible.py]
+    check_solution:
+      cwd: instructor
+      command: [python, tests-hidden.py]
 
 files:
   - path: student/instructions.md
