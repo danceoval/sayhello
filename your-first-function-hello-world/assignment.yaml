@@ -1,7 +1,14 @@
 schema_version: 4
-id: your-first-function-hello-world
-version: 1.0.0
-title: Your First Function - Hello World
-short_description: Students write a function named say_hello that returns the string "hello world".
-estimated_time: 20 minutes
-standards_alignment: ""
+id: "your-first-function-hello-world"
+version: "1.0.0"
+title: "Your First Function - Hello World"
+tags:
+  - "functions"
+  - "return"
+  - "input"
+grading:
+  modes:
+    - "correctness"
+files:
+  - path: "student/starting.py"
+    role: "starting_code"
